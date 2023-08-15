@@ -3,17 +3,17 @@ const nav = document.querySelector("nav.nav-bar");
 
 /* ---------------------  Sticky Navbar --------------------- */
 
-function stickyNavbar () {
-    nav.classList.toggle("scrolled", window.pageYOffset > 0);
-}
-window.addEventListener("scroll", stickyNavbar)
+// function stickyNavbar () {
+//     nav.classList.toggle("scrolled", window.pageYOffset > 0);
+// }
+// window.addEventListener("scroll", stickyNavbar)
 
 /* ---------------------  Menu Profile --------------------- */
 let menu_profile = document.querySelector('.nav-bar .container .menu-profile-tab');
 
-document.querySelector('#user-ava').onclick = () =>{
-  menu_profile.classList.toggle('active');
-}
+// document.querySelector('#user-ava').onclick = () =>{
+//   menu_profile.classList.toggle('active');
+// }
 
 /* ---------------------  Option booking bar --------------------- */
 let menu_booking = document.querySelector('.nav-bar .container .links .menu-booking-opt');

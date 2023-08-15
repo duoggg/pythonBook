@@ -11,6 +11,15 @@
     <!-- CSS Files -->
     <link href="{%static 'app/css/style-DR.css' %}" rel="stylesheet" />  
     <script src="{%static 'app/js/app-DR.js' %}" > </script>
+    <script type="text/javascript"> 
+        var user = '{{request.user}}'
+        console.log('user: ',user)
+        if (user === "AnonymousUser"){
+            console.log('user not logged in')
+        } else{
+            console.log('log in successfully')
+        }
+    </script>
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
     {% comment %} <link rel="stylesheet" href="./css/style-DR.css"> {% endcomment %}
 </head>
