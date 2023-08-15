@@ -90,7 +90,7 @@ DATABASES = {
     }
 }
 
-DATABASES['default'] = dj_database_url.parse("postgres://admin:vVeXVwQhkxIeh2k857hIQRKmxkNXthmG@dpg-cjdrk63bq8nc73br32h0-a/bookingcare_qdi3")
+DATABASES['default'] = dj_database_url.parse("postgres://admin:vVeXVwQhkxIeh2k857hIQRKmxkNXthmG@dpg-cjdrk63bq8nc73br32h0-a.singapore-postgres.render.com/bookingcare_qdi3")
 
 
 # Password validation
