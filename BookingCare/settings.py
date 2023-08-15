@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-import dj_database_url
+import dj_database_url,os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -23,9 +23,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-o9za47!@*+us3y9*gxmgaaqcos_esqd74cxs%51$ubhw99$gup'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
+DEBUG = os.environ.get('DEBUG', "False").lower() == 'true'
+
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '').split(' ')
 
 
 # Application definition
@@ -85,7 +88,7 @@ DATABASES = {
     }
 }
 
-DATABASES['default'] = dj_database_url.parse("postgres://admin:vVeXVwQhkxIeh2k857hIQRKmxkNXthmG@dpg-cjdrk63bq8nc73br32h0-a.singapore-postgres.render.com/bookingcare_qdi3")
+DATABASES['default'] = dj_database_url.parse("postgres://admin:vVeXVwQhkxIeh2k857hIQRKmxkNXthmG@dpg-cjdrk63bq8nc73br32h0-a/bookingcare_qdi3")
 
 
 # Password validation
