@@ -11,9 +11,10 @@ const nav = document.querySelector("nav.nav-bar");
 /* ---------------------  Menu Profile --------------------- */
 let menu_profile = document.querySelector('.nav-bar .container .menu-profile-tab');
 
-// document.querySelector('#user-ava').onclick = () =>{
-//   menu_profile.classList.toggle('active');
-// }
+var user_ava = document.querySelector('#user-ava');
+    user_ava.addEventListener("onclick", function(){
+  menu_profile.classList.toggle('active');
+})
 
 /* ---------------------  Option booking bar --------------------- */
 let menu_booking = document.querySelector('.nav-bar .container .links .menu-booking-opt');
@@ -30,9 +31,9 @@ window.onscroll = () =>{
 
 let navlink = document.querySelector('header .nav-bar .container .links');
 
-document.querySelector('#menu-btn').onclick = () =>{
-    navlink.classList.toggle('active');
-}
+// document.querySelector('#menu-btn').onclick = () =>{
+//     navlink.classList.toggle('active');
+// }
 
 window.onscroll = () =>{
     navlink.classList.remove('active');
