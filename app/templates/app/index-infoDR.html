@@ -1,0 +1,179 @@
+{% load  static %}
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://raw.githubusercontent.com/JosephD0310/Web_Booking_care/main/assets/ava.png" type="assets/x-icon" />
+    <title>PGS.TS Đỗ Thùy Dương</title>
+    <!-- CSS Files -->
+
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <link href="{%static 'app/css/style-infoDR.css' %}" rel="stylesheet" />  
+      {% comment %} <script src="{%static 'app/js/app-infoDR.js' %}" ></script> {% endcomment %}
+    
+</head>
+
+<body>
+    <header>
+        <nav class="info">
+            <div class="container">
+                <div class="hotline"><i class="uil uil-phone"></i> Hotline đặt khám : </div>
+                <div class="profile-tab">
+                    <span class="username">Đỗ Thùy Dương</span>
+                    <div class="user-ava" id="user-ava">
+                        <img src="https://raw.githubusercontent.com/JosephD0310/Web_Booking_care/main/assets/ava-users.png">
+                        <i class="uil uil-angle-down"></i>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <nav class="nav-bar">
+            
+            <div class="container">
+                <a href="#" class="logo">
+                    <img src="./assets/ava_v2.png" title="Booking Health Care Web"/>
+                </a>
+                <div class="links">
+                    {% comment %} <a class="nav-link" id="nav-booking">Đặt khám <i class="uil uil-angle-down"></i></a> {% endcomment %}
+                    <a href="{% url 'home'%}" class="nav-link">Đặt khám</a>
+                    <a href="#" class="nav-link">Hồ sơ cá nhân</a>
+                    
+                    <a href="#" class="nav-link">Sản phẩm y tế</a>
+                    <div class="menu-booking-opt">
+                        <a href="#" class="booking-opt">Bác sĩ</a>
+                        <a href="#" class="booking-opt">Gói khám</a>
+                    </div>
+                </div>
+                <div id="menu-btn"><i class="uil uil-bars"></i></div>
+
+                <div class="menu-profile-tab">
+                    <a href="#" id="menu-opt"><i class="uil uil-user"></i>Hồ sơ cá nhân</a>
+                    <a href="#" id="menu-opt"><i class="uil uil-schedule"></i>Lịch sử đặt khám</a>
+                    <a href="#" id="menu-opt"><i class="uil uil-shopping-cart"></i>Đơn hàng</a>
+                    <a href="#" id="menu-opt"><i class="uil uil-question-circle"></i>Câu hỏi của tôi</a>
+                    <a href="#" id="menu-opt"><i class="uil uil-keyhole-circle"></i>Đổi mật khẩu</a>
+                    <a href="#" id="menu-opt"><i class="uil uil-signout"></i>Đăng xuất</a>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="showcase-area">
+            <div class="container">
+                <div class="dr-image">
+                    <div class="image"></div>
+                </div>
+                <div class="dr-info">
+                    <h2 class="dr-name">{{doctor.name}}</h2>
+                    <div class="phong-kham">
+                        <div class="text"><i class="uil uil-user-location"></i> Phòng khám: </div>
+                        <p class="dc-phongkham">P.402 Tòa D9</p>
+                    </div>
+                    {% comment %} <div class="email-box">
+                        <div class="text"><i class="uil uil-envelope"></i> Chuyên Khoa: </div>
+                        <p class="email">{{doc.special}}</p>
+                    </div> {% endcomment %}
+                    {% comment %} <div class="sdt-box">
+                        <div class="text"><i class="uil uil-phone-alt"></i> Số điện thoại: </div>
+                        <p class="sdt">0123456789</p>
+                    </div> {% endcomment %}
+                    <div class="chuyen-khoa">
+                        <p class="khoa">{{doc.special}}</p>
+                    </div>
+                    <p class="cost">Giá khám : <span>500.000đ</span></p>
+                </div>
+            </div>
+        </section>
+        <section class="booking" id="booking">
+            <div class="container">
+                <div class="head">
+                    <div class="icon-schedule">
+                        <i class="uil uil-schedule"></i>
+                        <div class="head-text open">GIỜ LÀM VIỆC</div>
+                    </div>
+                    <div class="open-time">
+                        <div class="head-text">Thứ Hai - Thứ Sáu</div>
+                        <i class="uil uil-clock-nine"></i>
+                        <div class="head-text">8:00 - 16:00</div>
+                    </div>
+                </div>
+                <div class="schedule">
+                    <div class="text">Lịch khám tại viện:</div>
+                    <div class="schedule-box">
+                        <div class="selected-date">
+                            <input type="date" id="date" >
+                        </div>
+                        <div class="shift-opt">
+                            <input class="shift" onclick="activeShift(1)" value="08:00 - 09:00" readonly>
+                            <input class="shift" onclick="activeShift(2)" value="09:00 - 10:00" readonly>
+                            <input class="shift" onclick="activeShift(3)" value="10:00 - 11:00" readonly>
+                            <input class="shift" onclick="activeShift(4)" value="14:00 - 15:00" readonly>
+                            <input class="shift" onclick="activeShift(5)" value="15:00 - 16:00" readonly>
+                        </div>
+                    </div>
+                    <div class="container-service" id="serviceInfo" >
+                        <div class="service-icon"><i class="uil uil-check-circle"></i> Thông tin dịch vụ</div>
+                        <div class="service-text">
+                            <span id="service-label"></span>
+                            <span id="service-price"></span>
+                        </div>
+                        <a href="{% url 'register' %}" class="submit" type="submit">
+                            <div class="submit-icon"><i class="uil uil-stethoscope-alt"></i></div>
+                            <div class="submit-text">Đặt khám <br> <span>Tại cơ sở y tế</span></div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="info-dr" id="info-dr">
+            <div class="container">
+                <h3>KINH NGHIỆM KHÁM CHỮA BỆNH</h3>
+            <div class="duty">Trưởng Khoa Tai - Mũi - Họng Bệnh viện Zương Zương</div>
+            <div class="pros">Thế mạnh chuyên môn:
+                <ul>
+                    <li>Chữa các bệnh vùng Tai- Mũi - Hong: viêm tai, viêm mũi xoang, viêm họng, viêm loét họng, miệng, tăng tiết nước bọt vùng khoang miệng... bệnh lý các khối u vùng đầu mặt cổ</li>
+                    <li>Chuyên gia về trị liệu giọng nói cho những người làm các nghề liên quan đến giọng như phát thanh viên, ca sĩ, giáo viên...</li>
+                    <li>Các rối loạn giọng sau phẫu thuật</li>
+                    <li>Chuyên gia điều trị chóng mặt, rối loạn thăng bằng, ù tai</li>
+                    <li>Điều trị các đau mạn tính vùng sọ mặt, vùng lưỡi</li>
+                </ul>
+            </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <a href="#" class="logo">
+                <img src="./assets/ava_v2.png" title="Booking Health Care Web"/>
+            </a>
+            <ul class="social-media">
+                <li>
+                    <a href="#" class="social-link"><i class="uil uil-facebook-f"></i></a>
+                </li>
+                <li>
+                    <a href="#" class="social-link"><i class="uil uil-twitter"></i></a>
+                </li>
+                <li>
+                    <a href="#" class="social-link"><i class="uil uil-instagram"></i></a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script>
+        function activeShift(s){
+           
+        }
+    </script>
+    {% comment %} <script src="./js/app-infoDR.js"></script> {% endcomment %}
+</body>
+
+</html>    
