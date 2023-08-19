@@ -8,5 +8,6 @@ urlpatterns = [
     path('register', views.register,name="register"),
     path('login', views.loginPage,name="login"),
     path('logout', views.logoutPage,name="logout"),
-    path('order/<int:doctor_id>/<int:shift>/<str:date>/',views.order,name="order"),
+    # path('order/<int:doctor_id>/<int:shift>/<str:date>/',views.order,name="order"),
+    path('order',views.order,name="order"),
 ]

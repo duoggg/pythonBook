@@ -147,7 +147,8 @@
                             <span id="service-label"></span>
                             <span id="service-price"></span>
                         </div>
-                        <a href="{% url 'order' doctor_id=doctor.id shift=shift dateOrder=dateOrder %}" class="submit" type="submit">
+                        {% comment %} <a href="{% url 'order' doctor_id=doctor.id shift=shift dateOrder=dateOrder %}" class="submit" type="submit"> {% endcomment %}
+                        <a href="{% url 'order' doctor_id=doctor.id %}" class="submit" type="submit">
                             <div class="submit-icon"><i class="uil uil-stethoscope-alt"></i></div>
                             <div class="submit-text">Đặt khám <br> <span>Tại cơ sở y tế</span></div>
                         </a>
