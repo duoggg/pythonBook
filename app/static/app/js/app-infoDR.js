@@ -18,15 +18,15 @@ let menu_profile = document.querySelector('.nav-bar .container .menu-profile-tab
 // })
 
 /* ---------------------  Option booking bar --------------------- */
-let menu_booking = document.querySelector('.nav-bar .container .links .menu-booking-opt');
+// let menu_booking = document.querySelector('.nav-bar .container .links .menu-booking-opt');
 
-document.querySelector('.nav-bar .container .links #nav-booking').onclick = () =>{
-  menu_booking.classList.toggle('active');
-}
+// document.querySelector('.nav-bar .container .links #nav-booking').onclick = () =>{
+//   menu_booking.classList.toggle('active');
+// }
 
-window.onscroll = () =>{
-  menu_booking.classList.remove('active');
-}
+// window.onscroll = () =>{
+//   menu_booking.classList.remove('active');
+// }
 
 /* ---------------------  Menu bar --------------------- */
 
