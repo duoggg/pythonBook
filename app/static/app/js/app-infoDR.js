@@ -118,9 +118,7 @@ function appointment(docID){
     },
     body: JSON.stringify(dataToSend)
   })
-  .then(response =>{
-    return response.json()
-  })
+  .then(response => response.json())
   .then((data)=>{
     console.log('data',data)
   })
