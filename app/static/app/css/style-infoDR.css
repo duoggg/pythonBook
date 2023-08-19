@@ -337,7 +337,7 @@ nav.scrolled .logo{
     width: 350px;
     height: 350px;
     border-radius: 50%;
-    background: url('../assets/doctor1.jpg') no-repeat center / cover;
+    /* background: url('../assets/doctor1.jpg') no-repeat center / cover; */
     border: 20px solid #fff;
     box-shadow: 0px 0px 30px .5px rgba(49,216,133,1);
     position: absolute;
