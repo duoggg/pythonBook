@@ -22,14 +22,11 @@ class CreateUserForm(UserCreationForm):
 #     def __str__(self): 
 #         return self.name
     
-# class Order(models.Model):
-#     customer=models.ForeignKey(User,on_delete=models.SET_NULL,blank=True,null=True)
-#     doctor = models.ForeignKey(Doctor,on_delete=models.SET_NULL,blank=True,null=True)
-
-#     name=models.CharField(max_length=200,null=True)
-#     price=models.FloatField(max_length=200,null=True)
-#     complete = models.BooleanField(default=False,null=True,blank=False)
-#     transaction_id=models.CharField(max_length=200,null=True)
-
-#     def __str__(self): 
-#         return str(self.id)
+class Order(models.Model):
+    customer=models.ForeignKey(User,on_delete=models.SET_NULL,blank=True,null=True)
+    doctor = models.ForeignKey(Doctor,on_delete=models.SET_NULL,blank=True,null=True)
+    shift=models.IntegerField(default=1,null=True,blank=False)
+    date_appoint = models.DateTimeField(auto_now_add=True,blank=False)
+    date_order =  models.DateTimeField(auto_now_add=True)
+    def __str__(self): 
+        return str(self.id)

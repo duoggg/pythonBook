@@ -51,3 +51,10 @@ def loginPage(request):
 def logoutPage(request):
     logout(request)
     return redirect('login')
+
+def order(request):
+   if request.user.is_authenticated:
+        
+        return redirect('home')
+   else : return redirect('login')
+        
