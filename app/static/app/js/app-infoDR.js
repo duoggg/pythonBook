@@ -101,15 +101,22 @@ var dateOrder = dateInput.value;
 //   Appointment(doctorId,dateOrder,current_shift)
 // })
 
-function appointment(){
-  var url = '/order/';
+
+function appointment(docID){
+  var url = '/order/'
+  const dataToSend = {
+    doctorId: docID,
+    dateOrder: dateOrder,
+    shift: current_shift
+  };
   fetch(url,{
     method: 'POST',
     headers:{
       'Content-Type': 'application/json',
       'X-CSRFToken' : csrftoken,
+      'Accept': 'application/json'
     },
-    body: JSON.stringify({"doctorId":doctorId,"dateOrder":dateOrder,"shift":current_shift})
+    body: JSON.stringify(dataToSend)
   })
   .then(response =>{
     return response.json()
