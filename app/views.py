@@ -28,3 +28,9 @@ def register(request):
             form.save()
     context ={'form':form}
     return render(request,'app/register.html',context)
+
+def login(request):
+    # doctors= Doctor.objects.all()
+    # context={'doctors': doctors}
+    context={}
+    return render(request,'app/login.html',context)

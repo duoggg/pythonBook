@@ -12,10 +12,10 @@ const nav = document.querySelector("nav.nav-bar");
 /* ---------------------  Menu Profile --------------------- */
 let menu_profile = document.querySelector('.nav-bar .container .menu-profile-tab');
 
-var user_ava = document.querySelector('#user-ava');
-    user_ava.addEventListener("onclick", function(){
-  menu_profile.classList.toggle('active');
-})
+// var user_ava = document.querySelector('#user-ava');
+//     user_ava.addEventListener("onclick", function(){
+//   menu_profile.classList.toggle('active');
+// })
 
 /* ---------------------  Option booking bar --------------------- */
 let menu_booking = document.querySelector('.nav-bar .container .links .menu-booking-opt');
