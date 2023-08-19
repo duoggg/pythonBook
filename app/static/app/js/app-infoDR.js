@@ -100,7 +100,7 @@ var dateOrder = dateInput.value;
 // })
 
 function appointment(){
-  var url = '/order/';
+  var url = '/order';
   fetch(url,{
     method: 'POST',
     headers: {
