@@ -83,8 +83,36 @@ function activeShift(){
     };
     event.target.classList.add("active");
     current_shift = event.target.value;
+    // '{{order_shift}}' = current_shift ;
 
     service_label.textContent = "Khám theo yêu cầu chuyên khoa Tai - Mũi - Họng";
     service_price.textContent = "500.000 đ";
     serviceInfo.style.display = "block";
+}
+
+var doctorId = '{{doctor.id}}';
+var dateOrder = dateInput.value;
+
+var orderBtns = document.getElementsByClassName('submit');
+
+orderBtns.addEventListener('click',function(){
+  Appointment(doctorId,dateOrder,current_shift)
+})
+
+function Appointment(doctorId,dateOrder,current_shift){
+  var url = '/order/';
+  fetch(url,{
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-CSRFToken' : csrftoken,
+    },
+    body: JSON.stringify({'doctorId': doctorId,'dateOrder':dateOrder,'shift':current_shift})
+  })
+  .then((response)=>{
+    return response.json()
+  })
+  // .then((data)=>{
+  //   console.log
+  // })
 }

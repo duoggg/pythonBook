@@ -9,7 +9,31 @@
     <link rel="icon" href="https://raw.githubusercontent.com/JosephD0310/Web_Booking_care/main/assets/ava.png" type="assets/x-icon" />
     <title>PGS.TS Đỗ Thùy Dương</title>
     <!-- CSS Files -->
-
+    <script type="text/javascript"> 
+        var user = '{{request.user}}'
+        console.log('user: ',user)
+        if (user === "AnonymousUser"){
+            console.log('user not logged in')
+        } else{
+            console.log('log in successfully')
+        }
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+        const csrftoken = getCookie('csrftoken');
+    </script>
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
     <link href="{%static 'app/css/style-infoDR.css' %}" rel="stylesheet" />  
      
@@ -123,10 +147,10 @@
                             <span id="service-label"></span>
                             <span id="service-price"></span>
                         </div>
-                        <a href="{% url 'order' %}" class="submit" type="submit">
+                        <button class="submit" type="submit">
                             <div class="submit-icon"><i class="uil uil-stethoscope-alt"></i></div>
                             <div class="submit-text">Đặt khám <br> <span>Tại cơ sở y tế</span></div>
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div>
