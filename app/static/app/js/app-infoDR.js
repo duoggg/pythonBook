@@ -93,13 +93,13 @@ function activeShift(){
 var doctorId = '{{doctor.id}}';
 var dateOrder = dateInput.value;
 
-var orderBtns = document.getElementsByClassName('submit');
+// var orderBtns = document.getElementsByClassName("submit");
 
-orderBtns.addEventListener('click',function(){
-  Appointment(doctorId,dateOrder,current_shift)
-})
+// orderBtns.addEventListener('click',function(){
+//   Appointment(doctorId,dateOrder,current_shift)
+// })
 
-function Appointment(doctorId,dateOrder,current_shift){
+function appointment(){
   var url = '/order/';
   fetch(url,{
     method: 'POST',
