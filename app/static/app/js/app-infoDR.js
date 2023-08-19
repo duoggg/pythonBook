@@ -92,8 +92,8 @@ function activeShift(){
 
 var doctorId = '{{doctor.id}}';
 var dateOrder = dateInput.value;
-'{{dateOrder}}' = dateInput.value;
-'{{shift}}' = current_shift;
+// '{{dateOrder}}' = dateInput.value;
+// '{{shift}}' = current_shift;
 
 // var orderBtns = document.getElementsByClassName("submit");
 
@@ -101,20 +101,20 @@ var dateOrder = dateInput.value;
 //   Appointment(doctorId,dateOrder,current_shift)
 // })
 
-// function appointment(){
-//   var url = '/order';
-//   fetch(url,{
-//     method: 'POST',
-//     headers: {
-//       'Content-Type': 'application/json',
-//       'X-CSRFToken' : csrftoken,
-//     },
-//     body: JSON.stringify({"doctorId": doctorId,"dateOrder":dateOrder,"shift":current_shift})
-//   })
-//   .then((response) =>{
-//     return response.json()
-//   })
-//   .then((data)=>{
-//     console.log('data',data)
-//   })
-// }
+function appointment(){
+  var url = '/order/';
+  fetch(url,{
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-CSRFToken' : csrftoken,
+    },
+    body: JSON.stringify({"doctorId": doctorId,"dateOrder":dateOrder,"shift":current_shift})
+  })
+  .then(response =>{
+    return response.json()
+  })
+  .then((data)=>{
+    console.log('data',data)
+  })
+}
