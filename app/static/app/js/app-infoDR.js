@@ -100,7 +100,7 @@ var dateOrder = dateInput.value;
 // })
 
 function appointment(){
-  var url = '/order';
+  var url = 'order';
   fetch(url,{
     method: 'POST',
     headers: {
@@ -109,10 +109,10 @@ function appointment(){
     },
     body: JSON.stringify({'doctorId': doctorId,'dateOrder':dateOrder,'shift':current_shift})
   })
-  .then((response)=>{
+  .then((response) =>{
     return response.json()
   })
-  // .then((data)=>{
-  //   console.log
-  // })
+  .then((data)=>{
+    console.log('data',data)
+  })
 }
