@@ -77,14 +77,14 @@ dateInput.addEventListener("input", function() {
     serviceInfo.style.display = "none";
   });
 
-function activeShift(){
+function activeShift(sh){
     for(s of shift){
         s.classList.remove("active");
     };
     event.target.classList.add("active");
-    current_shift = event.target.value;
+    // current_shift = event.target.value;
     // '{{order_shift}}' = current_shift ;
-
+      current_shift = sh
     service_label.textContent = "Khám theo yêu cầu chuyên khoa Tai - Mũi - Họng";
     service_price.textContent = "500.000 đ";
     serviceInfo.style.display = "block";
