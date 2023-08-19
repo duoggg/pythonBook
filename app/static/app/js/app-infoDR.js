@@ -105,11 +105,11 @@ function appointment(){
   var url = '/order/';
   fetch(url,{
     method: 'POST',
-    headers: {
+    headers:{
       'Content-Type': 'application/json',
       'X-CSRFToken' : csrftoken,
     },
-    body: JSON.stringify({"doctorId": doctorId,"dateOrder":dateOrder,"shift":current_shift})
+    body: JSON.stringify({"doctorId":doctorId,"dateOrder":dateOrder,"shift":current_shift})
   })
   .then(response =>{
     return response.json()
