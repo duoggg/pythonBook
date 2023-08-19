@@ -105,7 +105,7 @@ var dateOrder = dateInput.value;
 function appointment(docID){
   var url = '/order/'
   console.log('date ',dateOrder)
-  console.log('shift',shift)
+  console.log('shift',current_shift)
   console.log('doctorId', docID)
   const dataToSend = {
     doctorId: docID,
