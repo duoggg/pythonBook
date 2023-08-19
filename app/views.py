@@ -1,3 +1,4 @@
+import datetime
 from django.shortcuts import render,redirect
 from django.http import HttpResponse, JsonResponse
 from .models import *
@@ -52,16 +53,29 @@ def logoutPage(request):
     logout(request)
     return redirect('login')
 
-def order(request):
-   if request.user.is_authenticated:
-        data = json.loads(request.body)
-        doctorId = data['doctorId']
-        dateOrder = data['dateOrder']
-        shift = data['shift']
-        customer = request.user
-        doctor = Doctor.objects.get(id= doctorId)
-        order, created = Order.objects.get_or_create(customer= customer,doctor= doctor,shift=shift,date_appoint = dateOrder)
-        order.save()
-        return redirect('home')
-   else : return redirect('login')
+def order(request,doctor_id,shift,date):
+    try:
+        doctor = Doctor.objects.get(pk=doctor_id)
+        if request.user.is_authenticated:
+        # data = json.loads(request.body)
+        # doctorId = data['doctorId']
+        # dateOrder = data['dateOrder']
+        # shift = data['shift']
+            customer = request.user
+            doctor = Doctor.objects.get(id= doctor_id)
+            date_obj = datetime.strptime(date, '%d/%m/%Y').date()
+            order, created = Order.objects.get_or_create(customer= customer,doctor= doctor,shift=shift,date_appoint = date_obj)
+            order.save()
+            context={'order': order}
+            return redirect('home')
+        else : return redirect('login')
+    except Doctor.DoesNotExist:
+        # Xử lý nếu không tìm thấy sản phẩm với product_id cụ thể
+        # Ví dụ: return HttpResponse("Sản phẩm không tồn tại.")
+        pass
+    return redirect('home')
+    
+    
+  
+   
 
