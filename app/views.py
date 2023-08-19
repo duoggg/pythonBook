@@ -56,8 +56,7 @@ def logoutPage(request):
     logout(request)
     return redirect('login')
 
-def order(request):
-    
+def order(request):  
     if request.user.is_authenticated:
         data = json.loads(request.body)
         doctorId = data['doctorId']

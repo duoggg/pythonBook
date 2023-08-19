@@ -104,16 +104,14 @@ var dateOrder = dateInput.value;
 
 function appointment(docID){
   var url = '/order/'
-  console.log('date ',dateOrder)
-  console.log('shift',current_shift)
-  console.log('doctorId', docID)
+  
   const dataToSend = {
-    doctorId: docID,
-    dateOrder: dateOrder,
-    shift: current_shift
+    "doctorId": docID,
+    "dateOrder": dateOrder,
+    "shift": current_shift
   };
   fetch(url,{
-    method: 'POST',
+    method: 'GET',
     headers:{
       'Content-Type': 'application/json',
       'X-CSRFToken' : csrftoken,
@@ -125,4 +123,7 @@ function appointment(docID){
   .then((data)=>{
     console.log('data',data)
   })
+  console.log('date ',dateOrder)
+  console.log('shift',current_shift)
+  console.log('doctorId', docID)
 }
