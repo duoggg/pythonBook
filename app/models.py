@@ -24,7 +24,8 @@ class CreateUserForm(UserCreationForm):
     
 # class Order(models.Model):
 #     customer=models.ForeignKey(User,on_delete=models.SET_NULL,blank=True,null=True)
-#     date_order = models.DateTimeField(auto_now_add=True)
+#     doctor = models.ForeignKey(Doctor,on_delete=models.SET_NULL,blank=True,null=True)
+
 #     name=models.CharField(max_length=200,null=True)
 #     price=models.FloatField(max_length=200,null=True)
 #     complete = models.BooleanField(default=False,null=True,blank=False)
