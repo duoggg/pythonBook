@@ -16,11 +16,14 @@ def home(request):
 def cart(request,doctor_id):
     try:
         doctor = Doctor.objects.get(pk=doctor_id)
+        shift = 1
+        dateOrder = '19/11/2003'
     except Doctor.DoesNotExist:
         # Xử lý nếu không tìm thấy sản phẩm với product_id cụ thể
         # Ví dụ: return HttpResponse("Sản phẩm không tồn tại.")
         pass
-    context={'doctor': doctor}
+    
+    context={'doctor': doctor,'shift':shift,'dateOrder':dateOrder}
     return render(request,'app/index-infoDR.html',context)
 
 def register(request):
